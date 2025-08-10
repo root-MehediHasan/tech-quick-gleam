@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { toast } from "@/components/ui/sonner";
 import { 
   Facebook, 
   Twitter, 
@@ -14,9 +15,27 @@ import {
   Gamepad2,
   Headphones
 } from "lucide-react";
+import { useState } from "react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    
+    setIsSubscribing(true);
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    toast.success("Successfully subscribed!", {
+      description: "Thank you for subscribing to our newsletter. You'll receive the latest tech reviews and news."
+    });
+    setEmail("");
+    setIsSubscribing(false);
+  };
 
   return (
     <footer className="bg-card border-t border-border">
@@ -38,16 +57,24 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               <Button variant="ghost" size="icon" className="hover:text-primary">
-                <Facebook className="h-4 w-4" />
+                <a href="https://facebook.com/techquickreview" target="_blank" rel="noopener noreferrer">
+                  <Facebook className="h-4 w-4" />
+                </a>
               </Button>
               <Button variant="ghost" size="icon" className="hover:text-primary">
-                <Twitter className="h-4 w-4" />
+                <a href="https://twitter.com/techquickreview" target="_blank" rel="noopener noreferrer">
+                  <Twitter className="h-4 w-4" />
+                </a>
               </Button>
               <Button variant="ghost" size="icon" className="hover:text-primary">
-                <Instagram className="h-4 w-4" />
+                <a href="https://instagram.com/techquickreview" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="h-4 w-4" />
+                </a>
               </Button>
               <Button variant="ghost" size="icon" className="hover:text-primary">
-                <Youtube className="h-4 w-4" />
+                <a href="https://youtube.com/techquickreview" target="_blank" rel="noopener noreferrer">
+                  <Youtube className="h-4 w-4" />
+                </a>
               </Button>
             </div>
           </div>
@@ -126,30 +153,48 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm">
               Subscribe to our newsletter for the latest tech reviews and news.
             </p>
-            <form className="space-y-2">
+            <form onSubmit={handleNewsletterSubmit} className="space-y-2">
               <Input 
                 type="email" 
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 className="bg-background/50 border-border focus:border-primary"
               />
-              <Button className="w-full bg-primary hover:bg-primary/90">
-                Subscribe
+              <Button 
+                type="submit" 
+                className="w-full bg-primary hover:bg-primary/90"
+                disabled={isSubscribing}
+              >
+                {isSubscribing ? "Subscribing..." : "Subscribe"}
               </Button>
             </form>
             
             <div className="space-y-2 pt-2">
-              <div className="flex items-center space-x-2 text-muted-foreground text-sm">
+              <a 
+                href="mailto:contact@techquickreview.com" 
+                className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+              >
                 <Mail className="h-4 w-4" />
                 <span>contact@techquickreview.com</span>
-              </div>
-              <div className="flex items-center space-x-2 text-muted-foreground text-sm">
+              </a>
+              <a 
+                href="tel:+15551234567" 
+                className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+              >
                 <Phone className="h-4 w-4" />
                 <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-2 text-muted-foreground text-sm">
+              </a>
+              <a 
+                href="https://maps.google.com/?q=San+Francisco,+CA" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+              >
                 <MapPin className="h-4 w-4" />
                 <span>San Francisco, CA</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>
