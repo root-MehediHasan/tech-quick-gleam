@@ -259,7 +259,7 @@ const LatestMobilePhones = () => {
           ))}
         </div>
 
-        {/* Load More Section */}
+        {/* Load More Section 
         <div className="text-center mt-8">
           <Button 
             variant="outline" 
@@ -268,7 +268,7 @@ const LatestMobilePhones = () => {
           >
             Load More Phones
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
