@@ -17,14 +17,14 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
-  const searchSuggestions = [
-    "iPhone 15 Pro Max review",
-    "MacBook Pro M3 specs",
-    "PlayStation 5 Pro",
-    "Samsung Galaxy S24 Ultra",
-    "AirPods Pro 3",
-    "Gaming laptops 2024"
-  ];
+ // const searchSuggestions = [
+   // "iPhone 15 Pro Max review",
+   // "MacBook Pro M3 specs",
+   // "PlayStation 5 Pro",
+   // "Samsung Galaxy S24 Ultra",
+   // "AirPods Pro 3",
+   // "Gaming laptops 2024"
+ // ];
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
