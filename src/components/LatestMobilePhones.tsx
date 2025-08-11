@@ -31,7 +31,7 @@ const LatestMobilePhones = () => {
     {
       id: "1",
       name: "iQOO Z10 Turbo Plus",
-      image: "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
+      image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300&h=300&fit=crop",
       originalPrice: 65000,
       discountedPrice: 51000,
       discountPercentage: 80,
@@ -40,7 +40,7 @@ const LatestMobilePhones = () => {
     {
       id: "2", 
       name: "Symphony Innova 40",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
+      image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=300&fit=crop",
       originalPrice: 15000,
       discountedPrice: 10999,
       discountPercentage: 70
@@ -48,7 +48,7 @@ const LatestMobilePhones = () => {
     {
       id: "3",
       name: "Vivo X Fold5",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop&crop=focalpoint&fp-y=0.3",
+      image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=300&h=300&fit=crop",
       originalPrice: 180000,
       discountedPrice: 140000,
       discountPercentage: 67,
@@ -57,7 +57,7 @@ const LatestMobilePhones = () => {
     {
       id: "4",
       name: "Realme GT 7",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop&crop=focalpoint&fp-y=0.7",
+      image: "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=300&h=300&fit=crop",
       originalPrice: 95000,
       discountedPrice: 77000,
       discountPercentage: 83
@@ -65,7 +65,7 @@ const LatestMobilePhones = () => {
     {
       id: "5",
       name: "ZTE nubia A56",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop&hue=240",
+      image: "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=300&h=300&fit=crop",
       originalPrice: 12000,
       discountedPrice: 9499,
       discountPercentage: 68
@@ -73,7 +73,7 @@ const LatestMobilePhones = () => {
     {
       id: "6",
       name: "Xiaomi Redmi 15 5G",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop&hue=120",
+      image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=300&h=300&fit=crop",
       originalPrice: 28000,
       discountedPrice: 22500,
       discountPercentage: 75
@@ -81,7 +81,7 @@ const LatestMobilePhones = () => {
     {
       id: "7",
       name: "Samsung Galaxy Z Flip7",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop&hue=60",
+      image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=300&h=300&fit=crop",
       originalPrice: 140000,
       discountedPrice: 110000,
       discountPercentage: 80
@@ -89,7 +89,7 @@ const LatestMobilePhones = () => {
     {
       id: "8",
       name: "Samsung Galaxy Z Flip7",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop&hue=300",
+      image: "https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=300&h=300&fit=crop",
       originalPrice: 165000,
       discountedPrice: 136000,
       discountPercentage: 80
@@ -97,7 +97,7 @@ const LatestMobilePhones = () => {
     {
       id: "9",
       name: "Vivo Y400",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop&hue=180",
+      image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=300&h=300&fit=crop",
       originalPrice: 35000,
       discountedPrice: 27999,
       discountPercentage: 77
@@ -105,7 +105,7 @@ const LatestMobilePhones = () => {
     {
       id: "10",
       name: "Honor Magic V5",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop&hue=0",
+      image: "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=300&h=300&fit=crop",
       originalPrice: 280000,
       discountedPrice: 220000,
       discountPercentage: 85
@@ -113,7 +113,7 @@ const LatestMobilePhones = () => {
     {
       id: "11",
       name: "Oppo Reno14",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop&hue=90",
+      image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=300&fit=crop",
       originalPrice: 95000,
       discountedPrice: 79990,
       discountPercentage: 86
@@ -121,7 +121,7 @@ const LatestMobilePhones = () => {
     {
       id: "12",
       name: "Oppo Reno14 F",
-      image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop&hue=270",
+      image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=300&h=300&fit=crop",
       originalPrice: 55000,
       discountedPrice: 42990,
       discountPercentage: 80
@@ -161,12 +161,12 @@ const LatestMobilePhones = () => {
           {mobilePhones.map((phone) => (
             <Card 
               key={phone.id} 
-              className="group overflow-hidden border border-border hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-2 relative bg-white rounded-xl"
+              className="group overflow-hidden border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative"
             >
               {/* Discount Badge */}
               <div className="absolute top-2 left-2 z-10">
                 <Badge 
-                  className="bg-gradient-to-r from-green-500 to-green-600 text-white font-bold text-xs px-2 py-1 shadow-lg"
+                  className="bg-green-500 text-white font-bold text-xs px-2 py-1"
                 >
                   {phone.discountPercentage}%
                 </Badge>
@@ -175,14 +175,14 @@ const LatestMobilePhones = () => {
               {/* Status Badges */}
               {phone.isNew && (
                 <div className="absolute top-2 right-2 z-10">
-                  <Badge variant="destructive" className="text-xs shadow-lg animate-pulse">
+                  <Badge variant="destructive" className="text-xs">
                     NEW
                   </Badge>
                 </div>
               )}
               {phone.isTrending && (
                 <div className="absolute top-2 right-2 z-10">
-                  <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs shadow-lg">
+                  <Badge className="bg-orange-500 text-white text-xs">
                     TRENDING
                   </Badge>
                 </div>
@@ -192,7 +192,7 @@ const LatestMobilePhones = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-8 right-2 z-10 h-8 w-8 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white/90 hover:bg-white shadow-lg backdrop-blur-sm"
+                className="absolute top-8 right-2 z-10 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity bg-white/80 hover:bg-white"
                 onClick={() => toggleFavorite(phone.id)}
               >
                 <Heart 
@@ -204,22 +204,21 @@ const LatestMobilePhones = () => {
                 />
               </Button>
 
-              <CardContent className="p-4">
+              <CardContent className="p-3">
                 {/* Phone Image */}
-                <div className="relative mb-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 flex items-center justify-center h-40 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/20 to-transparent"></div>
+                <div className="relative mb-3 bg-gray-50 rounded-lg p-4 flex items-center justify-center h-32">
                   <img 
                     src={phone.image} 
                     alt={phone.name}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-lg relative z-10"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                   />
                   
                   {/* Hover Actions */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-3">
-                    <Button size="icon" variant="secondary" className="h-10 w-10 rounded-full shadow-lg backdrop-blur-sm bg-white/90 hover:bg-white transform hover:scale-110 transition-all">
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                    <Button size="icon" variant="secondary" className="h-8 w-8">
                       <Eye className="h-4 w-4" />
                     </Button>
-                    <Button size="icon" variant="secondary" className="h-10 w-10 rounded-full shadow-lg backdrop-blur-sm bg-white/90 hover:bg-white transform hover:scale-110 transition-all">
+                    <Button size="icon" variant="secondary" className="h-8 w-8">
                       <ShoppingCart className="h-4 w-4" />
                     </Button>
                   </div>
@@ -227,21 +226,21 @@ const LatestMobilePhones = () => {
 
                 {/* Phone Details */}
                 <div className="space-y-2">
-                  <h3 className="font-semibold text-sm text-foreground line-clamp-2 group-hover:text-primary transition-colors leading-tight">
+                  <h3 className="font-medium text-sm text-foreground line-clamp-2 group-hover:text-primary transition-colors">
                     {phone.name}
                   </h3>
                   
                   {/* Pricing */}
-                  <div className="space-y-1.5">
+                  <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-primary font-bold text-base">
+                      <span className="text-primary font-bold text-sm">
                         {formatPrice(phone.discountedPrice)}
                       </span>
-                      <span className="text-xs text-muted-foreground bg-gray-100 px-2 py-0.5 rounded-full">
+                      <span className="text-xs text-muted-foreground">
                         (Unofficial)
                       </span>
                     </div>
-                    <div className="text-sm text-muted-foreground line-through font-medium">
+                    <div className="text-xs text-muted-foreground line-through">
                       {formatPrice(phone.originalPrice)}
                     </div>
                   </div>
@@ -249,8 +248,8 @@ const LatestMobilePhones = () => {
                   {/* View Details Button */}
                   <Button 
                     variant="outline" 
-                    size="sm"
-                    className="w-full text-xs h-8 border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium hover:shadow-lg hover:shadow-primary/20"
+                    size="sm" 
+                    className="w-full text-xs h-7 border-primary/20 hover:bg-primary hover:text-primary-foreground"
                   >
                     View Details
                   </Button>
