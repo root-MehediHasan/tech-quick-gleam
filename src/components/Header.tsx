@@ -17,14 +17,6 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
-  const searchSuggestions: string[] = [
-    "iPhone 15 Pro Max review",
-    "MacBook Pro M3 specs",
-    "PlayStation 5 Pro",
-    "Samsung Galaxy S24 Ultra",
-    "AirPods Pro 3",
-    "Gaming laptops 2024"
-  ];
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -37,9 +29,7 @@ const Header = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const filteredSuggestions = searchSuggestions.filter(suggestion =>
-    suggestion.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredSuggestions: string[] = [];
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -199,16 +189,6 @@ const Header = () => {
               </form>
               <div className="border-t border-border">
                 <div className="p-4 space-y-6 max-h-[420px] overflow-y-auto">
-                  <div>
-                    <div className="text-xs text-muted-foreground mb-2">Trending searches</div>
-                    <div className="flex flex-wrap gap-2">
-                      {searchSuggestions.slice(0, 8).map((suggestion, index) => (
-                        <button key={index} onClick={() => handleSuggestionClick(suggestion)} className="px-3 py-1.5 rounded-full border border-border hover:bg-accent/50 text-sm">
-                          {suggestion}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
 
                   {filteredSuggestions.length > 0 && (
                     <div>
