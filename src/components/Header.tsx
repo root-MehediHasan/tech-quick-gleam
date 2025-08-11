@@ -55,9 +55,6 @@ const Header = () => {
         {/* Center Navigation */}
         <nav className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
           <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
-            Reviews
-          </a>
-          <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
             Smartphones
           </a>
           <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
@@ -68,6 +65,9 @@ const Header = () => {
           </a>
           <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
             Accessories
+          </a>
+          <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+            Reviews
           </a>
         </nav>
 
