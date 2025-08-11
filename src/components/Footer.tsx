@@ -184,7 +184,7 @@ const Footer = () => {
                 className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 <Phone className="h-4 w-4" />
-                <span>+880 01732-594795</span>
+                <span>+880 1732-594795</span>
               </a>
               <a 
                 href="https://maps.app.goo.gl/FJcfq1eaxGaLRtiz9" 
