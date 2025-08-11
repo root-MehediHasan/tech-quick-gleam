@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Search, Menu, X, Mic, Smartphone, Laptop, Gamepad2, Headphones, Star, ChevronDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -25,6 +25,17 @@ const Header = () => {
     "AirPods Pro 3",
     "Gaming laptops 2024"
   ];
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsSearchOpen(false);
+        setIsSearchFocused(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   const filteredSuggestions = searchSuggestions.filter(suggestion =>
     suggestion.toLowerCase().includes(searchQuery.toLowerCase())
@@ -118,151 +129,19 @@ const Header = () => {
 
         {/* Right side - Search and Menu */}
         <div className="flex items-center space-x-2">
-          {/* Modern Search */}
-          <div className="relative z-50">
-            {!isSearchOpen ? (
-              <Button
-                variant="ghost" 
-                size="icon"
-                onClick={() => setIsSearchOpen(true)}
-                className="hover:bg-accent hover:scale-105 transition-all duration-200"
-              >
-                <Search className="h-5 w-5" />
-              </Button>
-            ) : (
-              <div className="relative">
-                <form onSubmit={handleSearch} className="flex items-center">
-                  <div className="relative">
-                    <div className="flex items-center bg-background/90 backdrop-blur-sm border border-border rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                      <Search className="absolute left-4 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        type="text"
-                        placeholder="Search reviews, products, comparisons..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        onFocus={() => setIsSearchFocused(true)}
-                        onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
-                        className="w-80 pl-12 pr-20 h-12 bg-transparent border-0 rounded-full focus:ring-2 focus:ring-primary/20 text-sm placeholder:text-muted-foreground/70"
-                        autoFocus
-                      />
-                      <div className="flex items-center space-x-1 pr-2">
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          size="icon"
-                          className="h-8 w-8 hover:bg-accent/50 rounded-full"
-                        >
-                          <Mic className="h-4 w-4 text-muted-foreground hover:text-primary transition-colors" />
-                        </Button>
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => {
-                            setIsSearchOpen(false);
-                            setSearchQuery("");
-                            setIsSearchFocused(false);
-                          }}
-                          className="h-8 w-8 hover:bg-accent/50 rounded-full"
-                        >
-                          <X className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-                
-                {/* Search Suggestions Dropdown */}
-                {isSearchFocused && (
-                  <div className="absolute top-full left-0 right-0 mt-2 bg-background border border-border rounded-xl shadow-2xl z-50">
-                    <div className="p-3 border-b border-border flex items-center justify-between text-xs text-muted-foreground">
-                      <span>Search across all content</span>
-                      <span>Press ESC to close</span>
-                    </div>
-
-                    <div className="p-4 space-y-4 max-h-96 overflow-y-auto">
-                      {searchQuery.length > 0 && (
-                        <div className="">
-                          <div className="text-xs text-muted-foreground mb-2">Search for:</div>
-                          <button
-                            onClick={() => handleSuggestionClick(searchQuery)}
-                            className="w-full text-left p-2 hover:bg-accent/50 rounded-lg transition-colors flex items-center space-x-2"
-                          >
-                            <Search className="h-4 w-4 text-primary" />
-                            <span className="font-medium">{searchQuery}</span>
-                          </button>
-                        </div>
-                      )}
-
-                      <div>
-                        <div className="text-xs text-muted-foreground mb-2">Trending searches</div>
-                        <div className="flex flex-wrap gap-2">
-                          {searchSuggestions.slice(0, 8).map((suggestion, index) => (
-                            <button
-                              key={index}
-                              onClick={() => handleSuggestionClick(suggestion)}
-                              className="px-3 py-1.5 rounded-full border border-border hover:bg-accent/50 text-sm"
-                            >
-                              {suggestion}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-
-                      {filteredSuggestions.length > 0 && (
-                        <div>
-                          <div className="text-xs text-muted-foreground mb-2">Suggestions</div>
-                          {filteredSuggestions.slice(0, 5).map((suggestion, index) => (
-                            <button
-                              key={index}
-                              onClick={() => handleSuggestionClick(suggestion)}
-                              className="w-full text-left p-2 hover:bg-accent/50 rounded-lg transition-colors flex items-center space-x-2 text-sm"
-                            >
-                              <Search className="h-3 w-3 text-muted-foreground" />
-                              <span>{suggestion}</span>
-                            </button>
-                          ))}
-                        </div>
-                      )}
-
-                      <div>
-                        <div className="text-xs text-muted-foreground mb-2">Quick access</div>
-                        <div className="grid grid-cols-2 gap-3">
-                          <a href="#" className="group rounded-xl border border-border p-3 hover:bg-accent/40 transition-colors flex items-start gap-3">
-                            <Smartphone className="h-4 w-4 text-primary mt-0.5" />
-                            <div>
-                              <div className="font-medium">Phone Reviews</div>
-                              <div className="text-xs text-muted-foreground">Latest smartphones</div>
-                            </div>
-                          </a>
-                          <a href="#" className="group rounded-xl border border-border p-3 hover:bg-accent/40 transition-colors flex items-start gap-3">
-                            <Laptop className="h-4 w-4 text-primary mt-0.5" />
-                            <div>
-                              <div className="font-medium">Laptop Reviews</div>
-                              <div className="text-xs text-muted-foreground">Gaming & productivity</div>
-                            </div>
-                          </a>
-                          <a href="#" className="group rounded-xl border border-border p-3 hover:bg-accent/40 transition-colors flex items-start gap-3">
-                            <Star className="h-4 w-4 text-primary mt-0.5" />
-                            <div>
-                              <div className="font-medium">Buying Guides</div>
-                              <div className="text-xs text-muted-foreground">Expert recommendations</div>
-                            </div>
-                          </a>
-                          <a href="#" className="group rounded-xl border border-border p-3 hover:bg-accent/40 transition-colors flex items-start gap-3">
-                            <Gamepad2 className="h-4 w-4 text-primary mt-0.5" />
-                            <div>
-                              <div className="font-medium">Tech News</div>
-                              <div className="text-xs text-muted-foreground">Latest updates</div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
+          <div className="relative z-50 hidden lg:block">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => {
+                setIsSearchOpen(true);
+                setIsSearchFocused(true);
+              }}
+              className="hover:bg-accent hover:scale-105 transition-all duration-200"
+              aria-label="Open search"
+            >
+              <Search className="h-5 w-5" />
+            </Button>
           </div>
           
           {/* Mobile Search Button */}
@@ -286,7 +165,103 @@ const Header = () => {
           </Button>
         </div>
       </div>
-      
+
+      {/* Desktop Search Overlay */}
+      {isSearchOpen && (
+        <div className="hidden lg:block">
+          <div className="fixed inset-0 z-[60]" onClick={() => { setIsSearchOpen(false); setIsSearchFocused(false); }}>
+            <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
+          </div>
+          <div className="fixed left-1/2 -translate-x-1/2 top-20 z-[70] w-full max-w-3xl px-4">
+            <div className="rounded-2xl border border-primary/30 shadow-xl bg-background animate-enter">
+              <form onSubmit={handleSearch}>
+                <div className="relative p-3">
+                  <Search className="absolute left-6 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    type="text"
+                    placeholder="Search reviews, guides, products, and more..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    autoFocus
+                    className="h-12 w-full pl-12 pr-12 bg-transparent border-2 border-primary/40 rounded-xl focus-visible:ring-primary/30"
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 h-8 w-8 hover:bg-accent/50 rounded-full"
+                    onClick={() => { setIsSearchOpen(false); setSearchQuery(""); setIsSearchFocused(false); }}
+                    aria-label="Close search"
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                </div>
+              </form>
+              <div className="border-t border-border">
+                <div className="p-4 space-y-6 max-h-[420px] overflow-y-auto">
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2">Trending searches</div>
+                    <div className="flex flex-wrap gap-2">
+                      {searchSuggestions.slice(0, 8).map((suggestion, index) => (
+                        <button key={index} onClick={() => handleSuggestionClick(suggestion)} className="px-3 py-1.5 rounded-full border border-border hover:bg-accent/50 text-sm">
+                          {suggestion}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {filteredSuggestions.length > 0 && (
+                    <div>
+                      <div className="text-xs text-muted-foreground mb-2">Suggestions</div>
+                      {filteredSuggestions.slice(0, 5).map((suggestion, index) => (
+                        <button key={index} onClick={() => handleSuggestionClick(suggestion)} className="w-full text-left p-2 hover:bg-accent/50 rounded-lg transition-colors flex items-center space-x-2 text-sm">
+                          <Search className="h-3 w-3 text-muted-foreground" />
+                          <span>{suggestion}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2">Quick access</div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <a href="#" className="group rounded-xl border border-border p-3 hover:bg-accent/40 transition-colors flex items-start gap-3">
+                        <Smartphone className="h-4 w-4 text-primary mt-0.5" />
+                        <div>
+                          <div className="font-medium">Phone Reviews</div>
+                          <div className="text-xs text-muted-foreground">Latest smartphones</div>
+                        </div>
+                      </a>
+                      <a href="#" className="group rounded-xl border border-border p-3 hover:bg-accent/40 transition-colors flex items-start gap-3">
+                        <Laptop className="h-4 w-4 text-primary mt-0.5" />
+                        <div>
+                          <div className="font-medium">Laptop Reviews</div>
+                          <div className="text-xs text-muted-foreground">Gaming & productivity</div>
+                        </div>
+                      </a>
+                      <a href="#" className="group rounded-xl border border-border p-3 hover:bg-accent/40 transition-colors flex items-start gap-3">
+                        <Star className="h-4 w-4 text-primary mt-0.5" />
+                        <div>
+                          <div className="font-medium">Buying Guides</div>
+                          <div className="text-xs text-muted-foreground">Expert recommendations</div>
+                        </div>
+                      </a>
+                      <a href="#" className="group rounded-xl border border-border p-3 hover:bg-accent/40 transition-colors flex items-start gap-3">
+                        <Gamepad2 className="h-4 w-4 text-primary mt-0.5" />
+                        <div>
+                          <div className="font-medium">Tech News</div>
+                          <div className="text-xs text-muted-foreground">Latest updates</div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur">
