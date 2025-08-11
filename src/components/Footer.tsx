@@ -173,27 +173,27 @@ const Footer = () => {
             
             <div className="space-y-2 pt-2">
               <a 
-                href="mailto:contact@techquickreview.com" 
+                href="mailto:techquickreview@gmail.com" 
                 className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 <Mail className="h-4 w-4" />
-                <span>contact@techquickreview.com</span>
+                <span>techquickreview@gmail.com</span>
               </a>
               <a 
-                href="tel:+15551234567" 
+                href="tel:+8801732594795" 
                 className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+880 01732-594795</span>
               </a>
               <a 
-                href="https://maps.google.com/?q=San+Francisco,+CA" 
+                href="https://maps.app.goo.gl/FJcfq1eaxGaLRtiz9" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 <MapPin className="h-4 w-4" />
-                <span>San Francisco, CA</span>
+                <span>Naogaon,Bangladesh</span>
               </a>
             </div>
           </div>
