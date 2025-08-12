@@ -98,7 +98,7 @@ const LatestLaptops = () => {
       display: "14\" 2.8K OLED",
       isNew: true
     },
-    {
+    /*{
       id: "6",
       name: "Acer Predator Helios 300",
       image: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400&h=300&hue=120",
@@ -188,7 +188,7 @@ const LatestLaptops = () => {
       storage: "1TB SSD",
       display: "17\" WQXGA IPS",
       isNew: true
-    }
+    } */
   ];
 
   const formatPrice = (price: number) => {
