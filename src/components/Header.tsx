@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Search, Menu, X, Mic, Smartphone, Laptop, Gamepad2, Headphones, Star, ChevronDown } from "lucide-react";
+import { Search, Menu, X, Smartphone, Laptop, Gamepad2, Headphones, Star, ChevronDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import {
@@ -16,7 +16,6 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
-
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -119,7 +118,8 @@ const Header = () => {
 
         {/* Right side - Search and Menu */}
         <div className="flex items-center space-x-2">
-          <div className="relative z-50 hidden lg:block">
+          {/* Desktop Search Button */}
+          <div className="relative z-50 hidden md:block">
             <Button
               variant="ghost"
               size="icon"
@@ -138,27 +138,42 @@ const Header = () => {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="lg:hidden"
+            className="md:hidden"
             onClick={() => setIsSearchOpen(!isSearchOpen)}
           >
             <Search className="h-5 w-5" />
           </Button>
           
           {/* Mobile Menu Button */}
-          <Button 
+          <button 
             variant="ghost" 
-            size="icon" 
-            className="lg:hidden"
+            className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-md hover:bg-accent transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+            <div className="w-5 h-5 relative flex flex-col justify-center">
+              <span 
+                className={`block h-0.5 w-5 bg-current transition-all duration-300 ease-in-out ${
+                  isMobileMenuOpen ? 'rotate-45 translate-y-0.5' : '-translate-y-1'
+                }`}
+              />
+              <span 
+                className={`block h-0.5 w-5 bg-current transition-all duration-300 ease-in-out ${
+                  isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
+                }`}
+              />
+              <span 
+                className={`block h-0.5 w-5 bg-current transition-all duration-300 ease-in-out ${
+                  isMobileMenuOpen ? '-rotate-45 -translate-y-0.5' : 'translate-y-1'
+                }`}
+              />
+            </div>
+          </button>
         </div>
       </div>
 
       {/* Desktop Search Overlay */}
-      {isSearchOpen && (
-        <div className="hidden lg:block">
+      {isSearchOpen && !isMobileMenuOpen && (
+        <div className="hidden md:block">
           <div className="fixed inset-0 z-[60]" onClick={() => { setIsSearchOpen(false); setIsSearchFocused(false); }}>
             <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
           </div>
@@ -243,61 +258,91 @@ const Header = () => {
       )}
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur">
-          <nav className="container py-4 space-y-2">
-            <a href="#" className="flex items-center gap-2 py-2 px-4 text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors">
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+      }`}>
+        <div className="border-t border-border bg-background/95 backdrop-blur">
+          <nav className="container py-4 space-y-1">
+            <a href="#" className="flex items-center gap-3 py-3 px-4 text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-200 transform hover:translate-x-1">
               <Star className="h-4 w-4" />
               Reviews
             </a>
-            <a href="#" className="flex items-center gap-2 py-2 px-4 text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors">
+            <a href="#" className="flex items-center gap-3 py-3 px-4 text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-200 transform hover:translate-x-1">
               <Smartphone className="h-4 w-4" />
               Smartphones
             </a>
-            <a href="#" className="flex items-center gap-2 py-2 px-4 text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors">
+            <a href="#" className="flex items-center gap-3 py-3 px-4 text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-200 transform hover:translate-x-1">
               <Laptop className="h-4 w-4" />
               Laptops
             </a>
-            <a href="#" className="flex items-center gap-2 py-2 px-4 text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors">
+            <a href="#" className="flex items-center gap-3 py-3 px-4 text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-200 transform hover:translate-x-1">
               <Gamepad2 className="h-4 w-4" />
               Gaming
             </a>
-            <a href="#" className="flex items-center gap-2 py-2 px-4 text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors">
+            <a href="#" className="flex items-center gap-3 py-3 px-4 text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-200 transform hover:translate-x-1">
               <Headphones className="h-4 w-4" />
               Accessories
             </a>
           </nav>
         </div>
-      )}
+      </div>
       
-      {/* Search Overlay for Mobile */}
-      {isSearchOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur border-b border-border p-4">
-          <form onSubmit={handleSearch} className="relative">
-            <div className="flex items-center bg-background border border-border rounded-full shadow-lg">
-              <Search className="absolute left-4 h-4 w-4 text-muted-foreground" />
+      {/* Mobile Search Overlay */}
+      {isSearchOpen && !isMobileMenuOpen && (
+        <div className="md:hidden">
+          <div className="fixed inset-0 z-[60]" onClick={() => { setIsSearchOpen(false); setIsSearchFocused(false); }}>
+            <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
+          </div>
+          <div className="fixed left-1/2 -translate-x-1/2 top-20 z-[70] w-full max-w-sm px-4">
+            <div className="rounded-2xl border border-primary/30 shadow-xl bg-background animate-enter">
+              <form onSubmit={handleSearch}>
+                <div className="relative p-3">
+                  <Search className="absolute left-6 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="text"
-                placeholder="Search reviews, products, comparisons..."
+                    placeholder="Search reviews, products..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-12 h-12 bg-transparent border-0 rounded-full focus:ring-2 focus:ring-primary/20"
                     autoFocus
+                    className="h-12 w-full pl-12 pr-12 bg-transparent border-2 border-primary/40 rounded-xl focus-visible:ring-primary/30"
                   />
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                onClick={() => {
-                  setIsSearchOpen(false);
-                  setSearchQuery("");
-                }}
-                className="absolute right-2 h-8 w-8 hover:bg-accent/50 rounded-full"
-              >
-                <X className="h-4 w-4" />
-              </Button>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 h-8 w-8 hover:bg-accent/50 rounded-full"
+                    onClick={() => { setIsSearchOpen(false); setSearchQuery(""); setIsSearchFocused(false); }}
+                    aria-label="Close search"
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                </div>
+              </form>
+              <div className="border-t border-border">
+                <div className="p-4 space-y-4 max-h-[300px] overflow-y-auto">
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2">Quick access</div>
+                    <div className="grid grid-cols-1 gap-2">
+                      <a href="#" className="group rounded-xl border border-border p-3 hover:bg-accent/40 transition-colors flex items-start gap-3">
+                        <Smartphone className="h-4 w-4 text-primary mt-0.5" />
+                        <div>
+                          <div className="font-medium text-sm">Phone Reviews</div>
+                          <div className="text-xs text-muted-foreground">Latest smartphones</div>
+                        </div>
+                      </a>
+                      <a href="#" className="group rounded-xl border border-border p-3 hover:bg-accent/40 transition-colors flex items-start gap-3">
+                        <Laptop className="h-4 w-4 text-primary mt-0.5" />
+                        <div>
+                          <div className="font-medium text-sm">Laptop Reviews</div>
+                          <div className="text-xs text-muted-foreground">Gaming & productivity</div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </form>
+          </div>
         </div>
       )}
     </header>
