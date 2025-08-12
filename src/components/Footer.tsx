@@ -40,7 +40,7 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -81,28 +81,28 @@ const Footer = () => {
 
           {/* Categories */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Categories</h3>
+            <h3 className="font-semibold text-foreground text-sm sm:text-base">Categories</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm">
                   <Smartphone className="h-4 w-4" />
                   <span>Smartphones</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm">
                   <Laptop className="h-4 w-4" />
                   <span>Laptops</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm">
                   <Gamepad2 className="h-4 w-4" />
                   <span>Gaming</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors text-sm">
                   <Headphones className="h-4 w-4" />
                   <span>Accessories</span>
                 </a>
@@ -112,35 +112,35 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Quick Links</h3>
+            <h3 className="font-semibold text-foreground text-sm sm:text-base">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                   Latest Reviews
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                   Buying Guides
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                   Comparisons
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                   Privacy Policy
                 </a>
               </li>
@@ -149,7 +149,7 @@ const Footer = () => {
 
           {/* Newsletter & Contact */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Stay Updated</h3>
+            <h3 className="font-semibold text-foreground text-sm sm:text-base">Stay Updated</h3>
             <p className="text-muted-foreground text-sm">
               Subscribe to our newsletter for the latest tech reviews and news.
             </p>
@@ -206,7 +206,7 @@ const Footer = () => {
           <div className="text-muted-foreground text-sm">
             © {currentYear} TechQuickReview. All rights reserved.
           </div>
-          <div className="flex space-x-6 text-sm">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </a>
