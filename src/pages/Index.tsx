@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Hero, { type HeroFilters } from "@/components/Hero";
 import LatestMobilePhones from "@/components/LatestMobilePhones";
+import LatestLaptops from "@/components/LatestLaptops";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,6 +19,7 @@ const Index = () => {
       <Header />
       <Hero filters={filters} onApplyFilters={setFilters} />
       <LatestMobilePhones filters={filters} />
+      <LatestLaptops />
       <Footer />
     </div>
   );
