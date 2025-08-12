@@ -88,7 +88,7 @@ const LatestMobilePhones = ({ filters }: LatestMobilePhonesProps) => {
       discountedPrice: 22500,
       discountPercentage: 75
     },
-    {
+    /*{
       id: "7",
       name: "Samsung Galaxy Z Flip7",
       image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=300&h=300&fit=crop",
@@ -135,7 +135,7 @@ const LatestMobilePhones = ({ filters }: LatestMobilePhonesProps) => {
       originalPrice: 55000,
       discountedPrice: 42990,
       discountPercentage: 80
-    }
+    }*/
   ];
 
   const formatPrice = (price: number) => {
