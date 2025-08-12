@@ -16,27 +16,36 @@ export type HeroFilters = {
   brand: string; // All | Samsung | Apple | ...
 };
 
+const defaultFilters: HeroFilters = {
+  query: "",
+  minPrice: 0,
+  maxPrice: 300000,
+  category: "All",
+  brand: "All",
+};
+
 interface HeroProps {
-  filters: HeroFilters;
-  onApplyFilters: (filters: HeroFilters) => void;
+  filters?: HeroFilters;
+  onApplyFilters?: (filters: HeroFilters) => void;
 }
 
 const Hero = ({ filters, onApplyFilters }: HeroProps) => {
-  const [range, setRange] = useState<number[]>([filters.minPrice, filters.maxPrice]);
-  const [query, setQuery] = useState<string>(filters.query);
-  const [category, setCategory] = useState<string>(filters.category || "All");
-  const [brand, setBrand] = useState<string>(filters.brand || "All");
+  const f = filters ?? defaultFilters;
+  const [range, setRange] = useState<number[]>([f.minPrice, f.maxPrice]);
+  const [query, setQuery] = useState<string>(f.query);
+  const [category, setCategory] = useState<string>(f.category || "All");
+  const [brand, setBrand] = useState<string>(f.brand || "All");
 
   useEffect(() => {
-    // Keep local state in sync if parent changes filters
-    setRange([filters.minPrice, filters.maxPrice]);
-    setQuery(filters.query);
-    setCategory(filters.category);
-    setBrand(filters.brand);
+    const ff = filters ?? defaultFilters;
+    setRange([ff.minPrice, ff.maxPrice]);
+    setQuery(ff.query);
+    setCategory(ff.category);
+    setBrand(ff.brand);
   }, [filters]);
 
   const apply = () => {
-    onApplyFilters({
+    onApplyFilters?.({
       query,
       minPrice: range[0],
       maxPrice: range[1],
