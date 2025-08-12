@@ -13,25 +13,25 @@ const Hero = () => {
       
       <div className="container relative z-10 text-center space-y-8">
         <div className="space-y-4">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
             <span className="bg-tech-gradient bg-clip-text text-transparent">
               Tech Reviews
             </span>
             <br />
             <span className="text-foreground">You Can Trust</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto px-4">
             In-depth reviews of the latest gadgets, smartphones, laptops, and tech accessories. 
             Make informed decisions with our expert analysis.
           </p>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
           <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3">
             <TrendingUp className="mr-2 h-5 w-5" />
             Latest Reviews
           </Button>
-          <Button variant="outline" size="lg" className="px-8 py-3">
+          <Button variant="outline" size="lg" className="px-8 py-3 border-primary/20 hover:bg-primary/10">
             <Play className="mr-2 h-4 w-4" />
             Watch Video Reviews
           </Button>
