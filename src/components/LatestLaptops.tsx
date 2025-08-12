@@ -8,8 +8,8 @@ interface Laptop {
   id: string;
   name: string;
   image: string;
-  originalPrice: number;
-  //discountedPrice: number;
+  //originalPrice: number;
+  discountedPrice: number;
   //discountPercentage: number;
   processor: string;
   ram: string;
@@ -37,8 +37,8 @@ const LatestLaptops = () => {
       id: "1",
       name: "MacBook Pro 16\" M3 Max",
       image: "https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=400&h=300",
-      originalPrice: 350000,
-      //discountedPrice: 285000,
+      //originalPrice: 350000,
+      discountedPrice: 285000,
       //discountPercentage: 18,
       processor: "Apple M3 Max",
       ram: "32GB",
@@ -50,8 +50,8 @@ const LatestLaptops = () => {
       id: "2",
       name: "ASUS ROG Strix G16",
       image: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400&h=300",
-      originalPrice: 180000,
-      //discountedPrice: 145000,
+      //originalPrice: 180000,
+      discountedPrice: 145000,
       //discountPercentage: 19,
       processor: "Intel i7-13650HX",
       ram: "16GB DDR5",
@@ -63,8 +63,8 @@ const LatestLaptops = () => {
       id: "3",
       name: "Dell XPS 13 Plus",
       image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=400&h=300",
-      originalPrice: 220000,
-      //discountedPrice: 175000,
+      //originalPrice: 220000,
+      discountedPrice: 175000,
       //discountPercentage: 20,
       processor: "Intel i7-1360P",
       ram: "16GB LPDDR5",
@@ -76,8 +76,8 @@ const LatestLaptops = () => {
       id: "4",
       name: "HP Pavilion Gaming 15",
       image: "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=400&h=300",
-      originalPrice: 95000,
-      //discountedPrice: 75000,
+      //originalPrice: 95000,
+      discountedPrice: 75000,
       //discountPercentage: 21,
       processor: "AMD Ryzen 5 5600H",
       ram: "8GB DDR4",
@@ -89,8 +89,8 @@ const LatestLaptops = () => {
       id: "5",
       name: "Lenovo ThinkPad X1 Carbon",
       image: "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&hue=240",
-      originalPrice: 280000,
-      //discountedPrice: 225000,
+      //originalPrice: 280000,
+      discountedPrice: 225000,
       //discountPercentage: 19,
       processor: "Intel i7-1365U",
       ram: "16GB LPDDR5",
@@ -102,8 +102,8 @@ const LatestLaptops = () => {
       id: "6",
       name: "Acer Predator Helios 300",
       image: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400&h=300&hue=120",
-      originalPrice: 165000,
-      //discountedPrice: 130000,
+      //originalPrice: 165000,
+      discountedPrice: 130000,
       //discountPercentage: 21,
       processor: "Intel i7-12700H",
       ram: "16GB DDR4",
@@ -228,16 +228,16 @@ const LatestLaptops = () => {
               className="group overflow-hidden border border-border hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 relative bg-card rounded-xl"
             >
               {/* Discount Badge */}
-              <div className="absolute top-2 left-2 z-10">
+              {/*<div className="absolute top-2 left-2 z-10">
                 <Badge 
                   className="bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold text-xs px-2 py-1 shadow-lg"
                 >
                   {laptop.discountPercentage}%
                 </Badge>
-              </div>
+              </div>*/}
 
               {/* Status Badges */}
-              {laptop.isNew && (
+              {/*{laptop.isNew && (
                 <div className="absolute top-2 right-2 z-10">
                   <Badge variant="destructive" className="text-xs px-2 py-1 animate-pulse">
                     NEW
@@ -257,10 +257,10 @@ const LatestLaptops = () => {
                     GAMING
                   </Badge>
                 </div>
-              )}
+              )}*/}
 
               {/* Favorite Button */}
-              <Button
+              {/*<Button
                 variant="ghost"
                 size="icon"
                 className="absolute top-2 right-12 z-10 h-8 w-8 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white/80 backdrop-blur-sm hover:bg-white hover:scale-110 rounded-full shadow-lg"
@@ -273,7 +273,7 @@ const LatestLaptops = () => {
                       : 'text-gray-600'
                   }`} 
                 />
-              </Button>
+              </Button>*/}
 
               <CardContent className="p-3">
                 {/* Laptop Image */}
@@ -286,12 +286,12 @@ const LatestLaptops = () => {
                   
                   {/* Hover Actions */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-2 rounded-xl backdrop-blur-sm">
-                    <Button size="icon" variant="secondary" className="h-8 w-8 rounded-full shadow-lg hover:scale-110 transition-transform">
+                    {/*<Button size="icon" variant="secondary" className="h-8 w-8 rounded-full shadow-lg hover:scale-110 transition-transform">
                       <Eye className="h-4 w-4" />
                     </Button>
                     <Button size="icon" variant="secondary" className="h-8 w-8 rounded-full shadow-lg hover:scale-110 transition-transform">
                       <ShoppingCart className="h-4 w-4" />
-                    </Button>
+                    </Button>*/}
                   </div>
                 </div>
 
