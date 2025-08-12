@@ -146,7 +146,6 @@ const Header = () => {
           
           {/* Mobile Menu Button */}
           <button 
-            variant="ghost" 
             className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-md hover:bg-accent transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >

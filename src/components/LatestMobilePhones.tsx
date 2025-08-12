@@ -16,7 +16,17 @@ interface MobilePhone {
   isTrending?: boolean;
 }
 
-const LatestMobilePhones = () => {
+interface LatestMobilePhonesProps {
+  filters?: {
+    query: string;
+    minPrice: number;
+    maxPrice: number;
+    category: string; // All | Budget | Mid-range | Flagship
+    brand: string; // All | Samsung | Apple | ...
+  };
+}
+
+const LatestMobilePhones = ({ filters }: LatestMobilePhonesProps) => {
   const [favorites, setFavorites] = useState<string[]>([]);
 
   const toggleFavorite = (phoneId: string) => {
@@ -137,6 +147,37 @@ const LatestMobilePhones = () => {
     }).format(price).replace('BDT', '৳');
   };
 
+  // Helpers for filtering
+  const getBrandFromName = (name: string) => {
+    const brands = ["Apple", "Samsung", "Xiaomi", "Vivo", "Oppo", "Realme", "Honor", "ZTE", "Symphony", "iQOO"];
+    const found = brands.find((b) => name.toLowerCase().includes(b.toLowerCase()));
+    return found ?? "Other";
+  };
+
+  const getCategoryFromPrice = (price: number) => {
+    if (price < 20000) return "Budget";
+    if (price < 80000) return "Mid-range";
+    return "Flagship";
+  };
+
+  const activeFilters = filters ?? {
+    query: "",
+    minPrice: 0,
+    maxPrice: Number.MAX_SAFE_INTEGER,
+    category: "All",
+    brand: "All",
+  };
+
+  const filteredPhones = mobilePhones.filter((phone) => {
+    const brand = getBrandFromName(phone.name);
+    const category = getCategoryFromPrice(phone.originalPrice);
+    const priceOk = phone.discountedPrice >= activeFilters.minPrice && phone.discountedPrice <= activeFilters.maxPrice;
+    const queryOk = activeFilters.query ? phone.name.toLowerCase().includes(activeFilters.query.toLowerCase()) : true;
+    const brandOk = activeFilters.brand === "All" || brand === activeFilters.brand;
+    const categoryOk = activeFilters.category === "All" || category === activeFilters.category;
+    return priceOk && queryOk && brandOk && categoryOk;
+  });
+
   return (
     <section className="py-16 bg-background">
       <div className="container">
@@ -159,7 +200,7 @@ const LatestMobilePhones = () => {
         </div>
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
-          {mobilePhones.map((phone) => (
+          {filteredPhones.map((phone) => (
             <Card 
               key={phone.id} 
               className="group overflow-hidden border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative bg-card"

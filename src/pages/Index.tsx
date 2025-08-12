@@ -1,14 +1,23 @@
+import { useState } from "react";
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+import Hero, { type HeroFilters } from "@/components/Hero";
 import LatestMobilePhones from "@/components/LatestMobilePhones";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [filters, setFilters] = useState<HeroFilters>({
+    query: "",
+    minPrice: 0,
+    maxPrice: 300000,
+    category: "All",
+    brand: "All",
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <Hero />
-      <LatestMobilePhones />
+      <Hero filters={filters} onApplyFilters={setFilters} />
+      <LatestMobilePhones filters={filters} />
       <Footer />
     </div>
   );
