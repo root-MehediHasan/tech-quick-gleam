@@ -142,31 +142,32 @@ const LatestMobilePhones = () => {
       <div className="container">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-3xl font-bold text-foreground mb-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
               LATEST MOBILE PHONES
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               Discover the newest smartphones with amazing deals and discounts
             </p>
           </div>
           <Button 
             variant="outline" 
-            className="text-primary border-primary hover:bg-primary hover:text-primary-foreground"
+            className="text-primary border-primary hover:bg-primary hover:text-primary-foreground text-sm sm:text-base"
           >
-            View More →
+            <span className="hidden sm:inline">View More →</span>
+            <span className="sm:hidden">More</span>
           </Button>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
           {mobilePhones.map((phone) => (
             <Card 
               key={phone.id} 
-              className="group overflow-hidden border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative"
+              className="group overflow-hidden border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative bg-card"
             >
               {/* Discount Badge */}
-              <div className="absolute top-2 left-2 z-10">
+              <div className="absolute top-1.5 left-1.5 z-10">
                 <Badge 
-                  className="bg-green-500 text-white font-bold text-xs px-2 py-1"
+                  className="bg-green-500 text-white font-bold text-xs px-1.5 py-0.5 sm:px-2 sm:py-1"
                 >
                   {phone.discountPercentage}%
                 </Badge>
@@ -174,15 +175,15 @@ const LatestMobilePhones = () => {
 
               {/* Status Badges */}
               {phone.isNew && (
-                <div className="absolute top-2 right-2 z-10">
-                  <Badge variant="destructive" className="text-xs">
+                <div className="absolute top-1.5 right-1.5 z-10">
+                  <Badge variant="destructive" className="text-xs px-1.5 py-0.5">
                     NEW
                   </Badge>
                 </div>
               )}
               {phone.isTrending && (
-                <div className="absolute top-2 right-2 z-10">
-                  <Badge className="bg-orange-500 text-white text-xs">
+                <div className="absolute top-1.5 right-1.5 z-10">
+                  <Badge className="bg-orange-500 text-white text-xs px-1.5 py-0.5">
                     TRENDING
                   </Badge>
                 </div>
@@ -192,11 +193,11 @@ const LatestMobilePhones = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-8 right-2 z-10 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity bg-white/80 hover:bg-white"
+                className="absolute top-7 right-1.5 z-10 h-6 w-6 sm:h-8 sm:w-8 opacity-0 group-hover:opacity-100 transition-opacity bg-white/80 hover:bg-white"
                 onClick={() => toggleFavorite(phone.id)}
               >
                 <Heart 
-                  className={`h-4 w-4 ${
+                  className={`h-3 w-3 sm:h-4 sm:w-4 ${
                     favorites.includes(phone.id) 
                       ? 'fill-red-500 text-red-500' 
                       : 'text-gray-600'
@@ -204,9 +205,9 @@ const LatestMobilePhones = () => {
                 />
               </Button>
 
-              <CardContent className="p-3">
+              <CardContent className="p-2 sm:p-3">
                 {/* Phone Image */}
-                <div className="relative mb-3 bg-gray-50 rounded-lg p-4 flex items-center justify-center h-32">
+                <div className="relative mb-2 sm:mb-3 bg-gray-50 rounded-lg p-2 sm:p-4 flex items-center justify-center h-24 sm:h-32">
                   <img 
                     src={phone.image} 
                     alt={phone.name}
@@ -215,28 +216,28 @@ const LatestMobilePhones = () => {
                   
                   {/* Hover Actions */}
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                    <Button size="icon" variant="secondary" className="h-8 w-8">
-                      <Eye className="h-4 w-4" />
+                    <Button size="icon" variant="secondary" className="h-6 w-6 sm:h-8 sm:w-8">
+                      <Eye className="h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
-                    <Button size="icon" variant="secondary" className="h-8 w-8">
-                      <ShoppingCart className="h-4 w-4" />
+                    <Button size="icon" variant="secondary" className="h-6 w-6 sm:h-8 sm:w-8">
+                      <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
                   </div>
                 </div>
 
                 {/* Phone Details */}
-                <div className="space-y-2">
-                  <h3 className="font-medium text-sm text-foreground line-clamp-2 group-hover:text-primary transition-colors">
+                <div className="space-y-1 sm:space-y-2">
+                  <h3 className="font-medium text-xs sm:text-sm text-foreground line-clamp-2 group-hover:text-primary transition-colors">
                     {phone.name}
                   </h3>
                   
                   {/* Pricing */}
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-primary font-bold text-sm">
+                      <span className="text-primary font-bold text-xs sm:text-sm">
                         {formatPrice(phone.discountedPrice)}
                       </span>
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs text-muted-foreground hidden sm:inline">
                         (Unofficial)
                       </span>
                     </div>
@@ -249,9 +250,10 @@ const LatestMobilePhones = () => {
                   <Button 
                     variant="outline" 
                     size="sm" 
-                    className="w-full text-xs h-7 border-primary/20 hover:bg-primary hover:text-primary-foreground"
+                    className="w-full text-xs h-6 sm:h-7 border-primary/20 hover:bg-primary hover:text-primary-foreground"
                   >
-                    View Details
+                    <span className="hidden sm:inline">View Details</span>
+                    <span className="sm:hidden">View</span>
                   </Button>
                 </div>
               </CardContent>
