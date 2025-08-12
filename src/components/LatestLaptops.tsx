@@ -9,8 +9,8 @@ interface Laptop {
   name: string;
   image: string;
   originalPrice: number;
-  discountedPrice: number;
-  discountPercentage: number;
+  //discountedPrice: number;
+  //discountPercentage: number;
   processor: string;
   ram: string;
   storage: string;
@@ -38,8 +38,8 @@ const LatestLaptops = () => {
       name: "MacBook Pro 16\" M3 Max",
       image: "https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=400&h=300",
       originalPrice: 350000,
-      discountedPrice: 285000,
-      discountPercentage: 18,
+      //discountedPrice: 285000,
+      //discountPercentage: 18,
       processor: "Apple M3 Max",
       ram: "32GB",
       storage: "1TB SSD",
@@ -51,8 +51,8 @@ const LatestLaptops = () => {
       name: "ASUS ROG Strix G16",
       image: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400&h=300",
       originalPrice: 180000,
-      discountedPrice: 145000,
-      discountPercentage: 19,
+      //discountedPrice: 145000,
+      //discountPercentage: 19,
       processor: "Intel i7-13650HX",
       ram: "16GB DDR5",
       storage: "1TB NVMe SSD",
@@ -64,8 +64,8 @@ const LatestLaptops = () => {
       name: "Dell XPS 13 Plus",
       image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=400&h=300",
       originalPrice: 220000,
-      discountedPrice: 175000,
-      discountPercentage: 20,
+      //discountedPrice: 175000,
+      //discountPercentage: 20,
       processor: "Intel i7-1360P",
       ram: "16GB LPDDR5",
       storage: "512GB SSD",
@@ -77,8 +77,8 @@ const LatestLaptops = () => {
       name: "HP Pavilion Gaming 15",
       image: "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=400&h=300",
       originalPrice: 95000,
-      discountedPrice: 75000,
-      discountPercentage: 21,
+      //discountedPrice: 75000,
+      //discountPercentage: 21,
       processor: "AMD Ryzen 5 5600H",
       ram: "8GB DDR4",
       storage: "512GB SSD",
@@ -90,8 +90,8 @@ const LatestLaptops = () => {
       name: "Lenovo ThinkPad X1 Carbon",
       image: "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&hue=240",
       originalPrice: 280000,
-      discountedPrice: 225000,
-      discountPercentage: 19,
+      //discountedPrice: 225000,
+      //discountPercentage: 19,
       processor: "Intel i7-1365U",
       ram: "16GB LPDDR5",
       storage: "1TB SSD",
@@ -103,8 +103,8 @@ const LatestLaptops = () => {
       name: "Acer Predator Helios 300",
       image: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400&h=300&hue=120",
       originalPrice: 165000,
-      discountedPrice: 130000,
-      discountPercentage: 21,
+      //discountedPrice: 130000,
+      //discountPercentage: 21,
       processor: "Intel i7-12700H",
       ram: "16GB DDR4",
       storage: "512GB SSD",
