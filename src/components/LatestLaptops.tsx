@@ -327,10 +327,10 @@ const LatestLaptops = () => {
                         (Best Price)
                       </span>
                     </div>
-                    <div className="text-xs text-muted-foreground line-through">
+                    {/*<div className="text-xs text-muted-foreground line-through">
                       {formatPrice(laptop.originalPrice)}
                     </div>
-                  </div>
+                  </div>*/}
 
                   {/* View Details Button */}
                   <Button 
