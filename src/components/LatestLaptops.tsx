@@ -98,7 +98,7 @@ const LatestLaptops = () => {
       display: "14\" 2.8K OLED",
       isNew: true
     },
-    /*{
+    {
       id: "6",
       name: "Acer Predator Helios 300",
       image: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400&h=300&hue=120",
@@ -111,7 +111,7 @@ const LatestLaptops = () => {
       display: "15.6\" FHD 144Hz",
       isGaming: true
     },
-    {
+    /*{
       id: "7",
       name: "Microsoft Surface Laptop 5",
       image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&hue=60",
@@ -348,7 +348,7 @@ const LatestLaptops = () => {
         </div>
 
         {/* Load More Section */}
-        <div className="text-center mt-8">
+        {/* <div className="text-center mt-8">
           <Button 
             variant="outline" 
             size="lg"
@@ -356,7 +356,7 @@ const LatestLaptops = () => {
           >
             Load More Laptops
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
